@@ -255,8 +255,9 @@ public class ResponseDefinition {
         if (browserProxyUrl != null) {
             return browserProxyUrl;
         }
+        String removedPath = originalRequest.getUrl().replaceFirst("/\\w+/", "/");
 
-        return proxyBaseUrl + originalRequest.getUrl();
+        return proxyBaseUrl + removedPath;
     }
 
     public String getProxyBaseUrl() {
